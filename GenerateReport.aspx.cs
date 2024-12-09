@@ -30,7 +30,6 @@ namespace WaterSavaFinal
         protected void btnGenerate_Click(object sender, EventArgs e)
         {
             string userName = Session["UserEmail"].ToString();
-            //String userName = "EsethuMnyombolo@gmail.com";
             DateTime StartDate = DateTime.Parse(startDate.Text);
             DateTime EndDate = DateTime.Parse(endDate.Text);
             string selectedActivity = activitiesDD.SelectedValue;
@@ -137,7 +136,6 @@ namespace WaterSavaFinal
         private void PopulateActivities()
         {
             string username = Session["UserEmail"].ToString();
-            //String username ="EsethuMnyombolo@gmail.com";
             string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
             using (OleDbConnection dbConnection = new OleDbConnection(connectionString))
@@ -150,7 +148,7 @@ namespace WaterSavaFinal
 
                 using (OleDbCommand cmd = new OleDbCommand(query, dbConnection))
                 {
-                    cmd.Parameters.AddWithValue("?", username); 
+                    cmd.Parameters.AddWithValue("?", username);
                     try
                     {
                         OleDbDataReader reader = cmd.ExecuteReader();
@@ -162,15 +160,14 @@ namespace WaterSavaFinal
                             string activityDescription = reader["ActivityDescription"].ToString();
                             string activityID = reader["ActivityID"].ToString();
 
-                            
-                            if (uniqueActivities.Add(activityDescription)) 
+                            if (uniqueActivities.Add(activityDescription))
                             {
                                 activities.Add(new ListItem(activityDescription, activityID));
                             }
                         }
                         activitiesDD.DataSource = activities;
-                        activitiesDD.DataTextField = "ActivityDescription"; 
-                        activitiesDD.DataValueField = "ActivityID"; 
+                        activitiesDD.DataTextField = "Text"; // Updated to use the correct property
+                        activitiesDD.DataValueField = "Value"; // Updated to use the correct property
                         activitiesDD.DataBind();
                     }
                     catch (Exception ex)
@@ -183,6 +180,7 @@ namespace WaterSavaFinal
                 dbConnection.Close();
             }
         }
+
 
     }
 }
