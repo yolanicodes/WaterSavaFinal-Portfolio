@@ -1,0 +1,59 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WaterSavaFinal.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - MyWaterSava</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <link rel="stylesheet" href="Content/bootstrap.min.css" />
+    <link href="Content/CustomStylesheet.css" rel="stylesheet"type="text/css" />
+    <%--<link rel="stylesheet" href="Content/bootstrap.min.css" />--%>
+   <%-- <webopt:bundlereference runat="server" path="~/Content/css" />--%>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+</head>
+<body >
+    <form runat="server">
+       <nav class="navbar">
+               <img src="Images/waterSava Logo.png" alt="Logo" />   
+               <h2 id="navTitle">WaterSava</h2>
+          
+           <ul id="nav-links" class="nav-links">
+               <li><asp:HyperLink ID="HomeLink" runat="server" CssClass="nav-link" NavigateUrl="~/IndexResidents.aspx">WaterSava</asp:HyperLink></li>
+<li><asp:HyperLink ID="GenerateReportLink" runat="server" CssClass="nav-link" NavigateUrl="~/GenerateReport.aspx">Report</asp:HyperLink></li>
+<li><asp:HyperLink ID="HouseTrackingLink" runat="server" CssClass="nav-link" NavigateUrl="~/ResidentHouseTrack.aspx">House Tracking</asp:HyperLink></li>
+<li><asp:HyperLink ID="GoalLink" runat="server" CssClass="nav-link" NavigateUrl="~/Goals.aspx">Goals</asp:HyperLink></li>
+<li><asp:HyperLink ID="detailsLink" runat="server" CssClass="nav-link" NavigateUrl="~/ManagePersonalDetails.aspx">Manage Personal Details</asp:HyperLink></li>
+  <li><asp:LinkButton ID="logOut" runat="server" CssClass="nav-link" OnClick="logOut_Click" OnClientClick="return confirmLogout();">Logout</asp:LinkButton></li>
+</ul>
+    <div class="menu-icon">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+</div>
+       </nav>
+       
+        <div class="body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                <p>&copy;<%= DateTime.Now.Year %> - watersava.com</p>
+            </footer>
+        </div> 
+
+    </form>
+   <%-- <script src="Scripts/customJavaScript.js" type="text/javascript"></script>--%>
+   
+    <script src="Scripts/jquery-3.7.1.min.js" type="text/javascript".></script>
+<script src="Scripts/bootstrap.min.js" type="text/javascript"></script> 
+    <script src="Scripts/customScript.js"  type="text/javascript"></script>
+   
+</body>
+</html>

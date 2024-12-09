@@ -1,0 +1,31 @@
+
+
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Login.Master.cs" Inherits="WaterSavaFinal.Site_Mobile" %>
+<%@ Register Src="~/ViewSwitcher.ascx" TagPrefix="friendlyUrls" TagName="ViewSwitcher" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
+    <link href="Content/CustomStylesheet.css" rel="stylesheet"type="text/css" />
+</head>
+<body class="body">
+    <nav class="navbar">
+        <img src="Images/waterSava Logo.png"
+ alt="Logo" />   
+        <h2 id="navTitle">WaterSava</h2>
+    </nav>
+    <div class=" container body-content">
+        <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
+              <hr />
+        <footer class="footer">
+       <p>&copy;<%= DateTime.Now.Year %> - watersava.com</p>
+       </footer>
+    </div>
+   <asp:PlaceHolder runat="server">
+    <%: Scripts.Render("~/Scripts/bootstrap.js") %>
+</asp:PlaceHolder>
+</body>
+</html>

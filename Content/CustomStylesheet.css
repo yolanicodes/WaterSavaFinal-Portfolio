@@ -1,0 +1,331 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
+
+body {
+    margin:auto;
+    padding:0;
+    background-color: #DAE8ED;
+    color: #003F67;
+    font-family: 'Nunito', 'Open Sans', sans-serif;
+    padding-top : 60px;
+}
+.navbar {
+    background-color: #3DBFEA;
+    color: floralwhite !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar img {
+        width: 50px; 
+        height: auto; 
+    }
+#navTitle {
+    color: white;
+    margin-left: 10px;
+    font-size: 24px;
+}
+.nav-link {
+    color: white !important; 
+    font-size: 20px;
+    text-decoration: none !important;
+    margin-left: 20px !important; 
+    font-family: Rockwell;
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    flex-grow: 1;
+}
+    .nav-links li a {
+        text-decoration: none;
+        color: white;
+        padding: 10px;
+        font-size: 20px;
+    }
+    .nav-links li {
+        margin: 0 10px; 
+    }
+.menu-icon {
+    display: none; /* Hidden by default */
+    cursor: pointer;
+    flex-direction: column; /* Align bars vertically */
+    justify-content: space-between; /* Space between bars */
+    align-items: center;
+    margin-left: auto;
+    padding-right:10px;
+}
+
+    .menu-icon .bar {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 4px 0;
+    }
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: #3DBFEA;
+        position: absolute;
+        top: 60px;
+       left:0;
+         z-index: 100;
+    }
+
+    .menu-icon {
+        display:flex; 
+    }
+
+    .nav-links.active {
+        display: flex; 
+    }
+
+    .nav-links li {
+        margin: 0; 
+    }
+
+        .nav-links li a {
+            font-size: 16px; 
+            padding: 10px 0; 
+        }
+}
+.lgnContainer {
+    margin-top: 10%;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center; 
+    height: 100vh; 
+    text-align: center;
+}
+.user-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    position: relative; /* Position the buttons for overlap */
+    z-index: 1;
+}
+
+.userRoleTabs {
+    display: flex;
+}
+
+.userRoleTabs input[type="radio"] {
+    display: none; /* Hide the radio buttons */
+}
+
+    .userRoleTabs label {
+        background-color: #ffffff;
+        padding: 10px 30px;
+        cursor: pointer;
+        transition: background-color 0.3s, border-color 0.3s;
+        border-radius: 20px; /* Makes the buttons rounded */
+        position: relative;
+        z-index: 2;
+        box-shadow: 0 0 0px rgba(0, 0, 0, 0);
+    }
+
+.userRoleTabs label:first-of-type {
+    margin-right: -30px; /* Overlap the first button with the second */
+}
+
+    .userRoleTabs input[type="radio"]:checked + label {
+        background-color: #2693b9;
+        color: white;
+        box-shadow: 0 0 8px rgba(38, 147, 185, 0.4);
+        z-index: 3; /* Bring the selected button to the front */
+    }
+
+  
+.textbox {
+    width: 504%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+.textbox:focus {
+        border-color: #2693b9;
+        box-shadow: 0 0 5px rgba(38, 147, 185, 0.5);
+        outline: none;
+    }
+.login-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #2693b9;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+    .login-button:hover {
+        background-color: #197799;
+    }
+.input-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+.textbox-label {
+    font-size: 16px;
+    color: #333;
+    margin-right: 20px;
+    min-width: 80px;
+    text-align: right;
+}
+.activityDD, .txtCapacity, .datebox,.detailfields {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 200px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+.btnSaveCons {
+    background-color: #00AEEF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.cancel-button {
+    background-color: lightslategray;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.delete-button {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.consumption-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+    .consumption-list li {
+        background-color: #DAE8ED;
+        border: 1px solid #2c95d9;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        color: #2c95d9;
+    }
+.consumptionItem {
+    display: block;
+    margin-bottom: 5px;
+}
+.consumption-list hr {
+    border: none;
+    border-top: 1px solid #2c95d9;
+    margin: 10px 0;
+}
+.body-content {
+    width: 75%;
+    margin: auto;
+    padding-top: 60px;
+}
+.summary-panel {
+    max-height: 600px; 
+    overflow-y: auto; 
+    margin-top: 20px; 
+}
+
+.consumption-list {
+    max-height: 100px; 
+    overflow-y: auto; 
+}
+.detailscontainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px; 
+    padding: 10px;
+}
+.detailscontainer div {
+        flex: 1;
+        min-width: 200px; /* Ensures elements don't get too small on narrow screens */
+        max-width: 300px; /* Optionally cap the maximum width */
+}
+    .detailscontainer label {
+        font-weight: bold;
+        margin-right: 10px;
+        display: block; /* Or inline for tighter spacing */
+}
+.carousel-item iframe {
+    width: 100%;
+    height: 400px;
+    border: none;
+}
+.carousel-inner.horizontal-carousel {
+    display: flex; /* Display items horizontally */
+    overflow-x: hidden; /* Hide overflow on the x-axis */
+}
+
+.carousel-item {
+    flex: 0 0 100; /* Prevent items from shrinking or growing */
+    width: 100%; /* Ensure each item takes up the full width of the carousel */
+    transition: transform 0.6s ease; /* Smooth transition for sliding effect */
+}
+
+.carousel-control-prev, .carousel-control-next {
+    z-index: 1; /* Ensure buttons are above the carousel */
+}
+
+/* Optional: Style the navigation arrows */
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: #000; /* Black icons */
+}
+.carousel-inner {
+    display: flex;  
+    flex-wrap: nowrap;  
+    overflow-x: auto; 
+}
+.carousel-item {
+    display: none;
+}
+
+    .carousel-item.active {
+        display: block;
+    }
+#RightContainer {
+    display: flex;
+    flex-direction: column; /* Keeps the content stacked vertically */
+    align-items: center; /* Centers items horizontally */
+}
+
+.dailyTrackers {
+    width: 100%; /* Adjust this as needed */
+    display: flex;
+    justify-content: center; /* Centers the chart horizontally */
+    margin-top: 20px; /* Optional: Adds space above the chart */
+}
