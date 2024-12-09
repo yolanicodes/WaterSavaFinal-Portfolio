@@ -329,3 +329,18 @@ body {
     justify-content: center; /* Centers the chart horizontally */
     margin-top: 20px; /* Optional: Adds space above the chart */
 }
+.gridview-style {
+    width: 80%; /* Adjust width as needed */
+    margin: 20px auto; /* Center and add vertical spacing */
+    border-collapse: collapse;
+}
+    /* Spacing around grid items */
+
+    .gridview-style th, .gridview-style td {
+        padding: 10px 15px; /* Adjust padding as needed */
+        border: 1px solid #ddd; /* Add borders for better visibility */
+    }
+    .title{
+        text-decoration:underline;
+        text-align:center;
+    }

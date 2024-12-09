@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
-    <h2>Water Consumption By Residents</h2>
+    <h2 class="title">Water Consumption By Residents</h2>
     <asp:Label ID="lblDebug" Text="" runat="server"></asp:Label>
     <asp:GridView ID="consumptionGridView" runat="server" AutoGenerateColumns="false" CssClass="gridview-style">
         <Columns>
