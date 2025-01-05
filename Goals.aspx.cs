@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Ajax.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -12,8 +13,13 @@ namespace WaterSavaFinal
     public partial class Goals : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
+        {if (Session["UserEmail"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
             string residentUsername = Session["UserEmail"].ToString();
+            
+
             int userID = GetUserID(residentUsername);
            
                 lblNoConsumptionMessage.Visible = false;
@@ -122,8 +128,7 @@ GROUP BY
         private void BindGoals()
         {
             string residentUsername = Session["UserEmail"].ToString();
-            ////String residentUsername = "EsethuMnyombolo@gmail.com";
-            //String residentUsername = "testuser@gmail.com";
+
             int userID = GetUserID(residentUsername);
             string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
@@ -343,6 +348,7 @@ private int GetUserID(string username)
         // Add new goal method (as you already have)
         protected void btnAddGoals_Click(object sender, EventArgs e)
         {
+            PanelAddGoal.Visible = true;
             string description = txtDescription.Text;
             int capacity = Convert.ToInt32(txtCapacity.Text);
             DateTime date = Convert.ToDateTime(txtDate.Text);
@@ -422,15 +428,24 @@ private int GetUserID(string username)
 
         protected void ddlGoalType_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Ensure the panel remains visible
+            PanelAddGoal.Visible = true;
+
             if (ddlGoalType.SelectedValue == "Activity")
             {
-                activities.Visible = true; // Show the activities dropdown
-                PopulateActivities(); // Call method to fill activities dropdown
+                activities.Visible = true; // Show activities dropdown
+                PopulateActivities(); // Fill activities dropdown
+                txtCapacity.Visible = false; // Hide capacity textbox
+            }
+            else if (ddlGoalType.SelectedValue == "OverallConsumption")
+            {
+                activities.Visible = false; // Hide activities dropdown
+                txtCapacity.Visible = true; // Show capacity textbox
             }
             else
             {
-                activities.Visible = false; // Hide the activities dropdown
-                txtCapacity.Visible = true; // Show capacity textbox
+                activities.Visible = false;
+                txtCapacity.Visible = false;
             }
         }
         private int GetPropertyIdForResident(string email)

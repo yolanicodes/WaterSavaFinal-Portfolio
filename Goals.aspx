@@ -88,7 +88,7 @@
     </Columns>
 </asp:GridView>
         <!-- Panel to add new goals -->
-        <asp:Panel ID="PanelAddGoal" runat="server">
+        <asp:Panel ID="PanelAddGoal" runat="server" ViewStateMode="Enabled">
             <div>
                 <h4>Add your goal</h4>
 
