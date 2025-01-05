@@ -137,7 +137,7 @@ namespace WaterSavaFinal
         private void PopulateActivities()
         {
             string username = Session["UserEmail"].ToString();
-            //String username ="EsethuMnyombolo@gmail.com";
+            
             string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
             using (OleDbConnection dbConnection = new OleDbConnection(connectionString))
@@ -146,7 +146,7 @@ namespace WaterSavaFinal
                 string query = @"SELECT a.[Activity_Description] AS ActivityDescription, a.[ActivityID]
                          FROM [ResidentActivity] ra
                          INNER JOIN [Activity] a ON ra.[Activity_Num] = a.[ActivityID]
-                         WHERE ra.[Resident_Username] = ?"; // Use parameterized query
+                         WHERE ra.[Resident_Username] = ?"; 
 
                 using (OleDbCommand cmd = new OleDbCommand(query, dbConnection))
                 {
@@ -169,8 +169,8 @@ namespace WaterSavaFinal
                             }
                         }
                         activitiesDD.DataSource = activities;
-                        activitiesDD.DataTextField = "ActivityDescription"; 
-                        activitiesDD.DataValueField = "ActivityID"; 
+                        activitiesDD.DataTextField = "Text"; 
+                        activitiesDD.DataValueField = "Value"; 
                         activitiesDD.DataBind();
                     }
                     catch (Exception ex)
